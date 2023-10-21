@@ -1,0 +1,23 @@
+version : '3'
+services:
+  
+  mainapp:
+    image: mainapp
+    build:
+      dockerfile : TransactionsGateway\Dockerfile
+    ports:
+      - "3500:80"
+   
+  instance1:
+    image: instance1
+    build:
+      dockerfile : Processing\Dockerfile
+    ports:
+      - "3600:81"
+      
+  instance2:
+    image: instance2
+    build:
+      dockerfile : Processing\Dockerfile
+    ports:
+      - "3700:81"
